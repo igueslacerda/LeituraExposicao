@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LeituraExposicao.Telas.ProfissionalPage"
+             Title="Cadastro de profissional">
+    <StackLayout Padding="20">
+        <Label Text="Informe os dados para cadastro" FontSize="Medium"/>
+
+        <Label Text="Nome" FontSize="Small" Margin="0,15,0,0"/>
+        <Entry x:Name="txtNome" Placeholder="Nome do profissional"/>
+
+        <Label Text="Função" FontSize="Small" Margin="0,15,0,0"/>
+        <Entry x:Name="txtFuncao" Placeholder="Descrição da função"/>
+
+        <Button Text="Adicionar profissional"  Margin="0,15,0,0" Clicked="Gravar_Clicked"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LeituraExposicao.Telas.RelatorioDosePage"
+             Title="Relatório de dose">
+    <ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="BorderColor" Value="White"/>
+        </Style>
+        <ColumnDefinitionCollection x:Key="colunasTabela">
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </ColumnDefinitionCollection>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Padding="0,20" Spacing="0">
+            <StackLayout Margin="20,0">
+                <Picker x:Name="pikProfissional" Title="Selecione o profissional" ItemDisplayBinding="{Binding Nome}"/>
+                <Picker x:Name="pikPaciente" Title="Selecione o paciente" ItemDisplayBinding="{Binding Nome}"/>
+
+                <Label Text="Exibir leituras de " FontSize="Medium" Margin="0,10,0,0"/>
+                <StackLayout Orientation="Horizontal">
+                    <DatePicker x:Name="dtpInicioPeriodo"/>
+                    <Label Text="  á  " FontSize="Medium" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                    <DatePicker x:Name="dtpFimPeriodo"/>
+                    <Button Text=" Pesquisar " x:Name="btnPesquisar" Clicked="btnPesquisar_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout x:Name="stlRelatorio" Spacing="0">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="5" Padding="5">
+                            <StackLayout>
+                                <StackLayout.Resources>
+                                    <Style TargetType="Label">
+                                        <Setter Property="VerticalTextAlignment" Value="Center"/>
+                                    </Style>
+                                </StackLayout.Resources>
+                                <Grid RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.6*"/>
+                                        <ColumnDefinition Width="0.20*"/>
+                                        <ColumnDefinition Width="0.20*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0" Text="Evento" TextColor="Black" FontSize="Small"/>
+                                    <Label Grid.Column="0" Grid.Row="1" Text="{Binding Evento}"/>
+                                    <Label Grid.Column="1" Grid.Row="0" Text="Data" TextColor="Black" FontSize="Small"/>
+                                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding HoraLeitura, StringFormat='{0:dd/MM/yy}'}"/>
+                                    <Label Grid.Column="2" Grid.Row="0" Text="Hora" TextColor="Black" FontSize="Small"/>
+                                    <Label Grid.Column="2" Grid.Row="1" Text="{Binding HoraLeitura, StringFormat='{0:hh:mm}'}"/>
+                                </Grid>
+                                <Grid RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="2" Text="Tempo" TextColor="Black" FontSize="Small"/>
+                                    <Label Grid.Column="0" Grid.Row="3" Text="{Binding Tempo, StringFormat='{0:#0} min'}"/>
+                                    <Label Grid.Column="1" Grid.Row="2" Text="Distâcia" TextColor="Black" FontSize="Small"/>
+                                    <Label Grid.Column="1" Grid.Row="3" Text="{Binding Distancia, StringFormat='{0:#0} cm'}"/>
+                                    <Label Grid.Column="2" Grid.Row="2" Text="Dose" TextColor="Black" FontSize="Small"/>
+                                    <Label Grid.Column="2" Grid.Row="3" Text="{Binding Dose, StringFormat='{0:#0.00}'}"/>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+            
+            
+            <Label x:Name="lblDoseTotal" HorizontalTextAlignment="End" HorizontalOptions="End" Margin="0,10,20,0" TextColor="Black"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

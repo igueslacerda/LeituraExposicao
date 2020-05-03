@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LeituraExposicao.Telas.RelatorioDoseEfetivaPage"
+             Title="Relatório de dose efetiva">
+    <ContentPage.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="BorderColor" Value="White"/>
+        </Style>
+        <ColumnDefinitionCollection x:Key="colunasTabela">
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </ColumnDefinitionCollection>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Padding="0,20" Spacing="0">
+            <StackLayout Margin="20,0,20,10">
+                <Picker Title="Selecione o profissional"/>
+
+                <Label Text="Exibir leituras de " FontSize="Medium" Margin="0,10,0,0"/>
+                <StackLayout Orientation="Horizontal">
+                    <DatePicker/>
+                    <Label Text="  á  " FontSize="Medium" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                    <DatePicker/>
+                    <Button Text=" Pesquisar "/>
+                </StackLayout>
+            </StackLayout>
+
+            <Frame Margin="5" Padding="10">
+                <StackLayout>
+                    <Label Text="Gabriel dos Santos"/>
+                    <FlexLayout JustifyContent="SpaceBetween" Direction="Row">
+                        <Label Text="04/06/2019"/>
+                        <Label Text="Dose: 20,85"/>
+                    </FlexLayout>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="Dose total: 60,64 μSv" HorizontalTextAlignment="End" HorizontalOptions="End" Margin="0,10,20,0"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

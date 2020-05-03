@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LeituraExposicao.Telas.LeituraPage"
+             Title="Leitura">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Profissional" FontSize="Medium"/>
+            <Picker x:Name="pikProfissional" ItemDisplayBinding="{Binding Nome}"/>
+
+            <Label Text="Paciente" FontSize="Medium" Margin="0,15,0,0"/>
+            <Picker x:Name="pikPaciente" ItemDisplayBinding="{Binding Nome}"/>
+
+            <Label Text="Evento" FontSize="Medium" Margin="0,15,0,0"/>
+            <Picker x:Name="pikEvento" ItemDisplayBinding="{Binding Descricao}" SelectedIndexChanged="pikEvento_SelectedIndexChanged"/>
+            <Label x:Name="lblDistanciaEvento" FontSize="Small"/>
+
+            <Grid RowSpacing="0" Margin="0,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Data" FontSize="Medium"/>
+                <DatePicker x:Name="dtpDataLeitura" Grid.Row="1"/>
+
+                <Label Grid.Column="1" Text="Hora" FontSize="Medium"/>
+                <TimePicker x:Name="tmpHoraLeitura" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+
+            <Label Text="Tempo de permanência" FontSize="Medium" Margin="0,15,0,0"/>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="txtTempoPermanencia" Keyboard="Numeric" WidthRequest="60" HorizontalTextAlignment="Center"/>
+                <Label Text="  minutos" VerticalOptions="Center" VerticalTextAlignment="End" HorizontalOptions="Start"/>
+            </StackLayout>
+
+            <Button Text="Incluir leitura" Margin="0,15,0,0" Clicked="Gravar_Clicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LeituraExposicao.Telas.PacientePage"
+             Title="Cadastro de paciente">
+    <StackLayout Padding="20">
+        <Label Text="Informe os dados para cadastro" FontSize="Medium"/>
+
+        <Label Text="Nome" FontSize="Small" Margin="0,15,0,0"/>
+        <Entry x:Name="txtNome" Placeholder="Nome do paciente"/>
+
+        <Label Text="Aplicação do radiofármaco" FontSize="Small" Margin="0,15,0,0"/>
+        <FlexLayout Direction="Row">
+            <DatePicker FlexLayout.Grow="1" x:Name="dtpData"/>
+            <TimePicker FlexLayout.Grow="1" x:Name="tmpHora"/>
+        </FlexLayout>
+
+        <Button Text="Adicionar paciente" Margin="0,15,0,0" Clicked="Gravar_Clicked"/>
+    </StackLayout>
+</ContentPage>

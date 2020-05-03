@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LeituraExposicao.MainPage"
+             Title="Leitura de exposição">
+
+    <Grid Padding="20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="1">
+            <Button Text="Profissionais" Clicked="Profissional_Clicked" ImageSource="profissional"/>
+            <Button Text="Pacientes" Clicked="Paciente_Clicked" ImageSource="paciente"/>
+            <Button Text="Leitura" Clicked="Leitura_Clicked" ImageSource="leitura"/>
+            <Button Text="Relatório de dose" Clicked="RelatorioDose_Clicked" ImageSource="relatorio"/>
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
